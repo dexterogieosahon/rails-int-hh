@@ -1,4 +1,11 @@
 GIT
+  remote: git://github.com/rails/pjax_rails.git
+  revision: 755b2988184607af87186046612efb0c9c2d99ba
+  specs:
+    pjax_rails (0.2.0)
+      jquery-rails
+
+GIT
   remote: git://github.com/seyhunak/twitter-bootstrap-rails.git
   revision: 2b119e7a83f34202b6ea7f61cd3da59b170ebdd8
   branch: static
@@ -138,6 +145,7 @@ DEPENDENCIES
   jquery-rails
   json
   pg
+  pjax_rails!
   rails (= 3.1.1)
   sass-rails (~> 3.1.4)
   sqlite3

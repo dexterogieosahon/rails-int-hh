@@ -2,20 +2,20 @@
 <html>
 <head>
   <title>Library</title>
-  <%= stylesheet_link_tag "application" %>
+  <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+  
   <div class="container main">
-
+    
     <div data-pjax-container>
       <%= render partial: 'navbar' %>
       <%= render partial: 'flash', locals: {flash: flash} %>
       <%= yield %>
     </div>
-
+    
   </div>
 
 </body>

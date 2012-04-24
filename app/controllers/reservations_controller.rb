@@ -1,22 +1,13 @@
 class ReservationsController < ApplicationController
   
-  def new
-    @book = Book.find(params[:book_id])
-    @reservation = @book.reservations.new
-    respond_to do |format|
-      format.html
-      format.js
-    end
-  end
-  
   def create
     @book = Book.find(params[:book_id])
-    @reservation = @book.reservations.new(params[:reservation])
+    @reservation = @book.reservations.new(user: current_user)
     if @reservation.save
       flash[:notice] = "Book reserved"
       respond_to do |format|
         format.html { redirect_to book_path(@book) }
-        format.js
+        format.json { render json: @reservation.to_json(include: :user) }
       end
     else
       render :new
@@ -25,9 +16,9 @@ class ReservationsController < ApplicationController
   
   def free
     @book = Book.find(params[:book_id])
-    @reservation = @book.reservations.find(params[:id])
+    @reservation = @book.reservations.where(id: params[:id], user_id: current_user.id).first
    
-    if @reservation.free
+    if @reservation && @reservation.free
       flash[:notice] = "Book is no longer reserved"
     else
       flash[:error]  = "Something went wrong"

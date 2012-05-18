@@ -1,3 +1,33 @@
 Library Application
 ===================
 
+Assignment  6
+Some security vulnerabilities found on rails 3.1.1 and above
+=============================================================
+Cross-site scripting (XSS) vulnerability in actionpack/lib/action_view/helpers/form_options_helper.rb in the select helper in Ruby on Rails 3.0.x before 3.0.12, 3.1.x before 3.1.4, and 3.2.x before 3.2.2 allows remote attackers to inject arbitrary web script or HTML via vectors involving certain generation of OPTION elements within SELECT elements.
+
+Cross-site scripting (XSS) vulnerability in Ruby on Rails 3.0.x before 3.0.12, 3.1.x before 3.1.4, and 3.2.x before 3.2.2 allows remote attackers to inject arbitrary web script or HTML via vectors involving a SafeBuffer object that is manipulated through certain methods.
+
+Cross-site scripting (XSS) vulnerability in the i18n translations helper method in Ruby on Rails 3.0.x before 3.0.11 and 3.1.x before 3.1.2, and the rails_xss plugin in Ruby on Rails 2.3.x, allows remote attackers to inject arbitrary web script or HTML via vectors related to a translations string whose name ends with an "html" substring.
+
+Rails upgrade from 3.1.1 to 3.2.3
+=================================
+rails upgraded to rails 3.2.3 following instructions from
+http://guides.rubyonrails.org/3_2_release_notes.html
+
+Ruby 1.9.x vulnerability
+The SecureRandom.random_bytes function in lib/securerandom.rb in Ruby before 1.8.7-p352 and 1.9.x before 1.9.2-p290 relies on PID values for initialization, which makes it easier for context-dependent attackers to predict the result string by leveraging knowledge of random strings obtained in an earlier process with the same PID.
+
+The FileUtils.remove_entry_secure method in Ruby 1.8.6 through 1.8.6-420, 1.8.7 through 1.8.7-330, 1.8.8dev, 1.9.1 through 1.9.1-430, 1.9.2 through 1.9.2-136, and 1.9.3dev allows local users to delete arbitrary files via a symlink attack.
+
+The VpMemAlloc function in bigdecimal.c in the BigDecimal class in Ruby 1.9.2-p136 and earlier, as used on Apple Mac OS X before 10.6.7 and other platforms, does not properly allocate memory, which allows context-dependent attackers to execute arbitrary code or cause a denial of service (application crash) via vectors involving creation of a large BigDecimal value within a 64-bit process, related to an "integer truncation issue."
+
+The FileUtils.remove_entry_secure method in Ruby 1.8.6 through 1.8.6-420, 1.8.7 through 1.8.7-330, 1.8.8dev, 1.9.1 through 1.9.1-430, 1.9.2 through 1.9.2-136, and 1.9.3dev allows local users to delete arbitrary files via a symlink attack.
+
+
+Sources:
+http://www.cvedetails.com/vulnerability-list/vendor_id-4954/product_id-8446/version_id-116921/Ruby-On-Rails-Ruby-On-Rails-3.1.1.html
+
+http://www.cvedetails.com/vulnerability-list/vendor_id-7252/product_id-12215/version_id-105451/Ruby-lang-Ruby-1.9.2.html
+
+http://www.cvedetails.com/vulnerability-list/vendor_id-7252/product_id-12215/version_id-105452/Ruby-lang-Ruby-1.9.3.html

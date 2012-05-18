@@ -3,7 +3,7 @@ require 'test_helper'
 class ReservationTest < ActiveSupport::TestCase
 
   setup do
-    @new_reservation = Factory.build(:reservation)
+    @new_reservation = FactoryGirl.build(:reservation)
   end
   
   should validate_presence_of(:book_id)
@@ -12,7 +12,7 @@ class ReservationTest < ActiveSupport::TestCase
   should allow_value("reserved").for(:state)
   
   should "not allow reservation if the book already reserved" do
-    reservation = Factory(:reservation, state: 'reserved')
+    reservation = FactoryGirl.create(:reservation, state: 'reserved')
     copy = Reservation.new(reservation.attributes)
     assert !copy.save
     assert_match /book has been already reserved/, copy.errors[:book_id].join

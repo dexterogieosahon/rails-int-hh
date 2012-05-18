@@ -4,7 +4,7 @@ class UserTest < ActiveSupport::TestCase
 
   context "user instance" do
     
-    subject { Factory(:user) }
+    subject { FactoryGirl.create(:user) }
     
     should validate_presence_of   :email
     should validate_uniqueness_of :email

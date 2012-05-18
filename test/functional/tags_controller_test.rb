@@ -5,8 +5,8 @@ class TagsControllerTest < ActionController::TestCase
   context "showing a tag" do    
       
     setup do
-      @tag = Factory(:tag)
-      login_as(Factory(:user))
+      @tag = FactoryGirl.create(:tag)
+      login_as(FactoryGirl.create(:user))
       get :show, id: @tag.id
     end
       
@@ -18,8 +18,8 @@ class TagsControllerTest < ActionController::TestCase
   context "tagging a book" do
     
     setup do
-      @book = Factory(:book)
-      login_as(Factory(:user))
+      @book = FactoryGirl.create(:book)
+      login_as(FactoryGirl.create(:user))
       
       post :create, book_id: @book.id, name: 'my_new_tag', format: :json
     end

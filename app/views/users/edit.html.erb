@@ -1,0 +1,18 @@
+<h1><%= t('users.profile.email')%> <%= @current_user.email %></h1> 
+<h2><%= t('users.profile.locale')%> <%= @current_user.locale %></h2>
+
+<%= form_for @current_user do |f| %> 
+
+  <fieldset>
+    <div class="clearfix">
+      <label><%= t('users.profile.language')%> </label>
+      <div class="input">
+        <%= f.select :locale, ["en","fi"] %>
+      </div>
+    </div>
+
+  <div class="actions">
+   <%= f.submit "Submit", class: 'btn primary' %>
+  </div>
+  
+  <% end %>

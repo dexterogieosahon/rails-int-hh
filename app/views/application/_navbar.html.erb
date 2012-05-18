@@ -8,15 +8,18 @@
       <span class="pull-right">
         <ul class="nav">
           <% if current_user %>
+          <li>
+              <%= link_to t('users.profile.titlebar'), edit_user_path(current_user.id) %>
+            </li>
             <li>
-              <%= link_to "Log out", session_path, method: :delete %>
+              <%= link_to t('users.profile.logout'), session_path, method: :delete %>
             </li>
           <% else %>
             <li>
-              <%= link_to "Log in", new_session_path %>
+              <%= link_to t('users.profile.login'), new_session_path %>
             </li>
             <li>
-              <%= link_to "Sign up", new_user_path %>
+              <%= link_to t('users.profile.signup'), new_user_path %>
             </li>
           <% end %>
         </ul>

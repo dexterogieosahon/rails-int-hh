@@ -5,7 +5,7 @@ class SessionsControllerTest < ActionController::TestCase
   context "login" do
   
     setup do
-      @user = Factory(:user)
+      @user = FactoryGirl.create(:user)
     end
     
     should "show the login page" do
@@ -45,7 +45,7 @@ class SessionsControllerTest < ActionController::TestCase
   context "logout" do
     
     setup do
-      session[:user_id] = Factory(:user)
+      session[:user_id] = FactoryGirl.create(:user)
     end
     
     should "log out" do
@@ -61,7 +61,7 @@ class SessionsControllerTest < ActionController::TestCase
   context "current_user" do
     
     setup do
-      @user = Factory(:user)
+      @user = FactoryGirl.create(:user)
     end
     
     should "return the logged in user when logged in" do

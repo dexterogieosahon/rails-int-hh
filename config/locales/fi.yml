@@ -1,0 +1,36 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+fi:
+  books:
+    index:
+      search_button_placeholder: "Haku otsikon mukaan"
+    list:
+      empty_list: "Anteeksi, emme ole löytäneet mitään kirjoja!"
+  users:
+    profile:
+       email: "Käyttäjän sähköpostiosoite: "
+       locale: "Paikanne: "
+       logout: "kirjaudu ulos"
+       signup: "ilmoittautua"
+       login: "kirjaudu sisaan"
+       titlebar: "Profiili"
+       language: "kieliasetukset"
+    update:
+       notice: 
+         success: "tallennettu!"    
+  flash:
+    books:
+      new:
+        error: "Ei kirja todennut, että ISBN"
+      create:
+        notice: "'%{title}' kirja loi"
+      update:
+        notice: "Kirja tallennettu"
+      destroy:
+        notice: "Kirja poistettu"
+    users:
+      update:
+        notice: 
+          success: "tallennettu!" 
+    

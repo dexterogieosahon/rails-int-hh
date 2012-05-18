@@ -5,7 +5,7 @@ class BookTest < ActiveSupport::TestCase
   context 'book instance' do
     
     setup do
-      @book = Factory(:book)
+      @book = FactoryGirl.create(:book)
     end
 
     should "have valid book" do
@@ -25,11 +25,11 @@ class BookTest < ActiveSupport::TestCase
   context 'tagging' do
     
     setup do
-      @book = Factory(:book)
+      @book = FactoryGirl.create(:book)
       
-      @untagged_tag = Factory(:tag)
+      @untagged_tag = FactoryGirl.create(:tag)
       
-      @tagged_tag = Factory(:tag)
+      @tagged_tag = FactoryGirl.create(:tag)
       @book.tags << @tagged_tag
     end
     

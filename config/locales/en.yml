@@ -2,4 +2,29 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+  books:
+    index:
+      search_button_placeholder: "Search by title"
+    list:
+      empty_list: "Sorry, we haven't found any books!"
+  users:
+    profile:
+       email: "User's email: "
+       locale: "current locale: "
+       language: "language settings: " 
+       titlebar: "Profile"
+  
+  flash:
+    books:
+      new:
+        error: "No book found by that ISBN"
+      create:
+        notice: "'%{title}' book created"
+      update:
+        notice: "Book saved"
+      destroy:
+        notice: "Book deleted"
+    users:
+      update:
+        notice: 
+          success: "Saved!" 

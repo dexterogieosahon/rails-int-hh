@@ -3,19 +3,23 @@ require 'test_helper'
 class ReservationsControllerTest < ActionController::TestCase
   
   setup do
-    @user          = Factory(:user)
-    @book          = Factory(:book)
-    @reserved_book = Factory(:book)
-    @reservation   = Factory(:reservation, book: @reserved_book, state: 'reserved', user: @user)
+    @user          = FactoryGirl.create(:user)
+    @book          = FactoryGirl.create(:book)
+    @reserved_book = FactoryGirl.create(:book)
+    @reservation   = FactoryGirl.create(:reservation, book: @reserved_book, state: 'reserved', user: @user)
     login_as(@user)
   end
   
   test "create reservation with valid parameters" do
     assert_difference("Reservation.count", +1) do
-      post :create, book_id: @book.id
-      assert_response :redirect
-      assert_redirected_to book_path(@book)
-      assert flash[:notice]
+      assert_difference 'ActionMailer::Base.deliveries.size', +1 do
+        post :create, book_id: @book.id
+        reservation_email = ActionMailer::Base.deliveries.last
+        assert_equal @user.email, reservation_email.to[0]
+        assert_response :redirect
+        assert_redirected_to book_path(@book)
+        assert flash[:notice]
+      end
     end
   end
   
@@ -28,7 +32,7 @@ class ReservationsControllerTest < ActionController::TestCase
   end
   
   test "free someone else's reservation" do
-    login_as Factory(:user)
+    login_as FactoryGirl.create(:user)
     put :free, book_id: @reserved_book.id, id: @reservation.id
     
     assert_response :redirect
